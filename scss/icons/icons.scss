@@ -1,9 +1,54 @@
-// reaction
 @import "heart.scss";
 @import "star.scss";
 
-// others
 @import "trophy.scss";
+
+@import "snes-jp-icon.scss";
+
+.nes-pixel-art {
+  position: relative;
+  display: inline-block;
+
+  @mixin setup_pixelart($px, $height) {
+    $size: $px * 16;
+
+    width: $size;
+    height: $px * $height;
+
+    &::before {
+      position: absolute;
+      top: $px * -1;
+      left: $px * -1;
+      display: block;
+      width: $size;
+      height: $height;
+      content: "";
+      background: transparent;
+    }
+
+    &.snes-jp-logo::before {
+      @include pixelize($snes-jp-logo, $snes-jp-logo-colors, $px);
+    }
+    &.snes-jp-logo.is-disabled::before {
+      @include pixelize($snes-jp-logo-disabled, $snes-jp-logo-disabled-colors, $px);
+    }
+  }
+
+  // default
+  @include setup_pixelart(3px, $snes-jp-logo-height);
+
+  &.is-small {
+    @include setup_pixelart(2px, $snes-jp-logo-height);
+  }
+
+  &.is-medium {
+    @include setup_pixelart(4px, $snes-jp-logo-height);
+  }
+
+  &.is-large {
+    @include setup_pixelart(5px, $snes-jp-logo-height);
+  }
+}
 
 .nes-icon {
   position: relative;
@@ -38,9 +83,6 @@
     }
     &.star.is-empty::before {
       @include pixelize($icon-star-empty, $icon-star-empty-colors, $px);
-    }
-    &.star.is-transparent::before {
-      @include pixelize($icon-star-transparent, $icon-star-colors, $px);
     }
 
     &.trophy::before {
