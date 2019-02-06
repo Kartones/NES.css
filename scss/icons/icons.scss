@@ -32,6 +32,9 @@
     &.snes-jp-logo.is-disabled::before {
       @include pixelize($snes-jp-logo-disabled, $snes-jp-logo-disabled-colors, $px);
     }
+    &.snes-jp-logo.is-empty::before {
+      @include pixelize($snes-jp-logo-empty, $snes-jp-logo-empty-colors, $px);
+    }
   }
 
   // default
