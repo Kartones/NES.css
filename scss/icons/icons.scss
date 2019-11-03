@@ -1,56 +1,8 @@
 @import "heart.scss";
 @import "star.scss";
 @import "trophy.scss";
-@import "snes-jp-icon.scss";
+@import "snes-pad.scss";
 @import "skull.scss";
-
-.nes-pixel-art {
-  position: relative;
-  display: inline-block;
-
-  @mixin setup_pixelart($px, $height) {
-    $size: $px * 16;
-
-    width: $size;
-    height: $px * $height;
-
-    &::before {
-      position: absolute;
-      top: $px * -1;
-      left: $px * -1;
-      display: block;
-      width: $size;
-      height: $height;
-      content: "";
-      background: transparent;
-    }
-
-    &.snes-jp-logo::before {
-      @include pixelize($snes-jp-logo, $snes-jp-logo-colors, $px);
-    }
-    &.snes-jp-logo.is-disabled::before {
-      @include pixelize($snes-jp-logo-disabled, $snes-jp-logo-disabled-colors, $px);
-    }
-    &.snes-jp-logo.is-empty::before {
-      @include pixelize($snes-jp-logo-empty, $snes-jp-logo-empty-colors, $px);
-    }
-  }
-
-  // default
-  @include setup_pixelart(3px, $snes-jp-logo-height);
-
-  &.is-small {
-    @include setup_pixelart(2px, $snes-jp-logo-height);
-  }
-
-  &.is-medium {
-    @include setup_pixelart(4px, $snes-jp-logo-height);
-  }
-
-  &.is-large {
-    @include setup_pixelart(5px, $snes-jp-logo-height);
-  }
-}
 
 .nes-icon {
   position: relative;
@@ -99,6 +51,16 @@
     }
     &.skull.is-empty::before {
       @include pixelize($icon-skull-empty, $icon-skull-empty-colors, $px);
+    }
+
+    &.snes-pad::before {
+      @include pixelize($snes-pad, $snes-pad-colors, $px);
+    }
+    &.snes-pad.is-empty::before {
+      @include pixelize($snes-pad-empty, $snes-pad-empty-colors, $px);
+    }
+    &.snes-pad.is-disabled::before {
+      @include pixelize($snes-pad-disabled, $snes-pad-disabled-colors, $px);
     }
   }
 
