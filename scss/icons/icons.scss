@@ -1,9 +1,8 @@
 @import "heart.scss";
 @import "star.scss";
-
 @import "trophy.scss";
-
 @import "snes-jp-icon.scss";
+@import "skull.scss";
 
 .nes-pixel-art {
   position: relative;
@@ -93,6 +92,13 @@
     }
     &.trophy.is-empty::before {
       @include pixelize($icon-trophy-empty, $icon-trophy-empty-colors, $px);
+    }
+
+    &.skull::before {
+      @include pixelize($icon-skull, $icon-skull-colors, $px);
+    }
+    &.skull.is-empty::before {
+      @include pixelize($icon-skull-empty, $icon-skull-empty-colors, $px);
     }
   }
 

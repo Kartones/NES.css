@@ -39,11 +39,16 @@ We're really happy you want to contribute to the project! ❤️ The following s
     ```sh
     $ npm run storybook
     ```
+4. To only build>
+    ```sh
+    $ npm run-script build
+    ```
 
 ### Directories
 ```sh
 .
-├── index.html: Demo page
+├── demo.html: Demo page (Finished Games customized)
+├── index.html: Demo page (original)
 ├── style.css: Demo page style
 ├── css: Distribution files
 ├── docs: Storybook stories
